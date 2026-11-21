@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Marks Prediction</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+        }
+
+        .container {
+            background: white;
+            width: 400px;
+            padding: 40px 35px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 27px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #444;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #667eea;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: translateY(-3px);
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            border-radius: 10px;
+            background: #f3f0ff;
+            color: #5b4bb7;
+        }
+
+        .result h2 {
+            margin-top: 8px;
+            font-size: 28px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #999;
+            font-size: 12px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="icon">🎓</div>
+
+        <h1>Student Marks Prediction</h1>
+
+        <p class="subtitle">
+            Predict your exam marks based on your study hours!
+        </p>
+
+        <form method="POST">
+
+            <label>Enter Study Hours</label>
+
+            <input
+                type="number"
+                name="hours"
+                placeholder="Enter study hours"
+                min="0"
+                step="any"
+                required
+            >
+
+            <button type="submit">
+                Predict Marks
+            </button>
+
+        </form>
+
+        {% if prediction is not none %}
+
+        <div class="result">
+
+            <p>🎉 Your Predicted Marks</p>
+
+            <h2>{{ prediction }}</h2>
+
+        </div>
+
+        {% endif %}
+
+        <p class="footer">
+            Powered by Machine Learning | Linear Regression
+        </p>
+
+    </div>
+
+</body>
+</html>
